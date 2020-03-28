@@ -5,6 +5,7 @@ import useSocket from 'use-socket.io-client';
 import { useImmer } from 'use-immer';
 
 import './index.css';
+import Navy from './components/Navy'
 
 const Messages = props => props.data.map(m => m[0] !== '' ? (<li><strong>{m[0]}</strong> : <div className="innermsg">{m[1]}</div></li>) : (<li className="update">{m[1]}</li>));
 
@@ -86,6 +87,8 @@ export default () => {
       </div>
     </section>
   ) : (
+    <div>
+    <Navy />
       <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
         <img src={process.env.PUBLIC_URL + '/shopchat-logo2.PNG'} />
         <h2>chat with a shopchat representative</h2>
@@ -96,6 +99,7 @@ export default () => {
           <input id="room" onChange={e => setRoom(e.target.value.trim())} placeholder="What is your room .." /><br />
           <button type="submit">Submit</button>
         </form>
+      </div>
       </div>
     );
 };
