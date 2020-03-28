@@ -90,6 +90,9 @@ export default () => {
     }
   };
 
+
+
+
   return id ? (
     <section style={{ display: "flex", flexDirection: "row" }}>
       <ul id="messages">
@@ -105,6 +108,7 @@ export default () => {
           <button style={{ width: "75px" }} type="submit">
             Send
           </button>
+     
         </form>
       </div>
     </section>
