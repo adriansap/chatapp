@@ -96,7 +96,7 @@ export default () => {
         
 
       <img src={process.env.PUBLIC_URL + '/jppizza.PNG'} />
-      <h2> teykout room</h2>
+      <h2> shopchat room</h2>
       <form onSubmit={event => handleSubmit(event)}>
         
         <input id="name" onChange={e => setNameInput(e.target.value.trim())} required placeholder="What is your name .." /><br />

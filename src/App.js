@@ -10,7 +10,7 @@ import Vendor from './Vendor';
 
 
 function App() {
-    document.title = "Teykaut | Talk With Shops";
+    document.title = "shopchat | Talk With Shops";
     return (
       <Router>
         <div>
