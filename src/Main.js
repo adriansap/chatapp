@@ -1,11 +1,12 @@
 import React from 'react';
 import Navy from './components/Navy'
+import Employees from './Employees.json'
 
 function Main() {
     return (
 
         <div>
-         <Navy />
+         <Navy  employees={Employees} />
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
