@@ -20,6 +20,7 @@ function Navy(props) {
                         <Nav.Link href="/userregister">Register</Nav.Link>
                         <Nav.Link href="/vendor">For Vendors</Nav.Link>
                         <Nav.Link href="#">Contact</Nav.Link>
+                        <Nav.Link href="#">Blog</Nav.Link>
 
                     </Nav>
                     <Form inline>
