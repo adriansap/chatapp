@@ -14,8 +14,9 @@ function Main() {
             
                 </div>
                 <a href="/chat">
-                    <center> <img src={process.env.PUBLIC_URL + '/Capture-teikautcom.PNG'} alt="mainpic" width="620px" height="600px" /></center>
+                    <center> <img src={process.env.PUBLIC_URL + '/shopchat-logo2.PNG'} alt="mainpic" width="620px" height="600px" /></center>
                 </a>
+                <center><h2>a chatroom for every shop </h2></center>
             </div >
         </div>
     )
