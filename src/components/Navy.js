@@ -3,10 +3,16 @@ import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'
 
 
 function Navy() {
+    let styles = {
+       
+        fontFamily: 'Titan One',
+
+    };
+
     return (
         <div>
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="/">teykout</Navbar.Brand>
+                <Navbar.Brand href="/" style={styles}>shopchat</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/vendor">For Vendors</Nav.Link>
                     <Nav.Link href="/userregister">Register</Nav.Link>
