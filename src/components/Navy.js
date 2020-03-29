@@ -13,7 +13,7 @@ function Navy(props) {
     };
 
     let searchDiv = {
-        backgroundColor: 'lightgrey',
+        backgroundColor: 'lightyellow',
     };
 
     if (queryValue) {
@@ -54,6 +54,7 @@ function Navy(props) {
             </div>
         )
     }
+    //else if no query value render this ->
     return (
         <div>
             <Navbar bg="dark" variant="dark">
