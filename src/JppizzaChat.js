@@ -103,7 +103,10 @@ export default () => {
             <input id="room" onChange={e => setRoom(e.target.value.trim())} placeholder="What is your room .." /><br />
             <button type="submit">Submit</button>
           </form>
+          <br></br>
+          <center><div>JP Pizza Blog - Specials This Week!</div></center>
         </div>
+        
       </div>
     );
 };
