@@ -8,13 +8,14 @@ function Navy(props) {
     let styles = {
 
         fontFamily: 'Titan One',
+        color: 'yellow',
 
     };
     if (queryValue) {
         return (
             <div>
                 <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="/" style={styles}>shopchat</Navbar.Brand>
+                    <Navbar.Brand href="/" style={styles}>yellowchat</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/userlogin">Login</Nav.Link>
                         <Nav.Link href="/userregister">Register</Nav.Link>
@@ -24,7 +25,7 @@ function Navy(props) {
 
                     </Nav>
                     <Form inline>
-                        <input onChange={event => setValue(event.target.value)} class="form-control" type="text" placeholder="Search" aria-label="Search"></input>
+                        <input onChange={event => setValue(event.target.value)} class="form-control" type="text" placeholder="chat local shops" aria-label="Search"></input>
                         {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
                         <Button variant="outline-info">Search</Button>
                     </Form>
@@ -36,10 +37,10 @@ function Navy(props) {
                     <tr>
                         <th scope="row"></th>
                         <td><img src={filteredName.image} alt="profilepic"></img></td>
-                        <td>{filteredName.name},</td>
+                        <td>{filteredName.name}</td>
                         {/* <td>{filteredName.phone},</td> */}
-                        <a href={filteredName.shopchatlink}><td>shopchat room</td></a>
-                       
+                        <a href={filteredName.yellowchatlink}><td>@yellowchat</td></a>
+
                     </tr>
 
 
@@ -49,25 +50,25 @@ function Navy(props) {
             </div>
         )
     }
-return (
-    <div>
-        <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="/" style={styles}>shopchat</Navbar.Brand>
-            <Nav className="mr-auto">
-                <Nav.Link href="/userlogin">Login</Nav.Link>
-                <Nav.Link href="/userregister">Register</Nav.Link>
-                <Nav.Link href="/vendor">For Vendors</Nav.Link>
-                <Nav.Link href="#">Contact</Nav.Link>
+    return (
+        <div>
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand href="/" style={styles}>yellowchat</Navbar.Brand>
+                <Nav className="mr-auto">
+                    <Nav.Link href="/userlogin">Login</Nav.Link>
+                    <Nav.Link href="/userregister">Register</Nav.Link>
+                    <Nav.Link href="/vendor">For Vendors</Nav.Link>
+                    <Nav.Link href="#">Contact</Nav.Link>
 
-            </Nav>
-            <Form inline>
-                <input onChange={event => setValue(event.target.value)} class="form-control" type="text" placeholder="Search" aria-label="Search"></input>
-                {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
-                <Button variant="outline-info">Search</Button>
-            </Form>
-        </Navbar>
-    </div>
-)
+                </Nav>
+                <Form inline>
+                    <input onChange={event => setValue(event.target.value)} class="form-control" type="text" placeholder="Search" aria-label="Search"></input>
+                    {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
+                    <Button variant="outline-info">Search</Button>
+                </Form>
+            </Navbar>
+        </div>
+    )
 
 }
 

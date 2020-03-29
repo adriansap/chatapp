@@ -10,24 +10,26 @@ import Vendor from './Vendor';
 
 
 function App() {
-    document.title = "shopchat | Talk With Shops";
-    return (
-      <Router>
-        <div>
-          {/* <Wrapper> */}
-          <Route exact path="/" render={() => <Main/>} />
-          <Route exact path="/chat" render={() => <Chat/>} />
-          <Route exact path="/jppizza" render={() => <JppizzaChat />} />
-          <Route exact path="/userregister" render={() => <Userregister />} />
-          <Route exact path="/userlogin" render={() => <Userlogin />} />
-          <Route exact path="/vendor" render={() => <Vendor />} />
+  document.title = "yellowchat | chat with local shops";
+  return (
+
+    <Router>
+      <div>
+        {/* <Wrapper> */}
+        <Route exact path="/" render={() => <Main />} />
+        <Route exact path="/chat" render={() => <Chat />} />
+        <Route exact path="/jppizza" render={() => <JppizzaChat />} />
+        <Route exact path="/userregister" render={() => <Userregister />} />
+        <Route exact path="/userlogin" render={() => <Userlogin />} />
+        <Route exact path="/vendor" render={() => <Vendor />} />
 
 
-          {/* </Wrapper> */}
-        </div>
-      </Router>
-    );
-  }
+        {/* </Wrapper> */}
+      </div>
+    </Router>
+
+  );
+}
 
 
 export default App;

@@ -87,19 +87,19 @@ export default () => {
       </div>
     </section>
   ) : (
-    <div>
-    <Navy />
-      <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
-        <img src={process.env.PUBLIC_URL + '/shopchat-logo2.PNG'} />
-        <h2>chat with a shopchat representative</h2>
+      <div>
+        <Navy />
+        <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
+          <img src={process.env.PUBLIC_URL + '/yellowchat-logo2.PNG'} />
+          <h2>chat with a yellowchat representative</h2>
 
-        <form onSubmit={event => handleSubmit(event)}>
+          <form onSubmit={event => handleSubmit(event)}>
 
-          <input id="name" onChange={e => setNameInput(e.target.value.trim())} required placeholder="What is your name .." /><br />
-          <input id="room" onChange={e => setRoom(e.target.value.trim())} placeholder="What is your room .." /><br />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+            <input id="name" onChange={e => setNameInput(e.target.value.trim())} required placeholder="What is your name .." /><br />
+            <input id="room" onChange={e => setRoom(e.target.value.trim())} placeholder="What is your room .." /><br />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       </div>
     );
 };
