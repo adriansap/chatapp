@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "image": "https://res.cloudinary.com/dejaksfsk/image/upload/c_scale,w_154/v1585447078/jppizza_dhby2q.png",
+    "name": "JP Pizza",
+    "phone": "(839)-497-9833",
+    "email": "suzy.g@example.com",
+    "yellowchatlink": "http://www.yellowchat.us/jppizza"
+  },
+  {
+    "id": 2,
+    "image": "http://placehold.it/50x50",
+    "name": "Sushi Masters",
+    "phone": "(839)-127-3333",
+    "email": "patty.s@example.com",
+    "DOB": "02-20-1986"
+  },
+  {
+    "id": 3,
+    "image": "http://placehold.it/50x50",
+    "name": "American Burger",
+    "phone": "(839)-444-4833",
+    "email": "ursula.g@example.com",
+    "DOB": "03-21-1986"
+  },
+  {
+    "id": 4,
+    "image": "http://placehold.it/50x50",
+    "name": "Guero Mexican Grill",
+    "phone": "(839)-417-2833",
+    "email": "joan.p@example.com",
+    "DOB": "04-22-1986"
+  },
+  {
+    "id": 5,
+    "image": "http://placehold.it/50x50",
+    "name": "Taj Indian Restaurant",
+    "phone": "(839)-797-0833",
+    "email": "trisha.w@example.com",
+    "DOB": "05-10-1986"
+  }
+]

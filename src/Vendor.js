@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Navy from './components/Navy'
+import Vendorsdb from './Vendorsdb.json'
 var fs = require('fs');
 
 
@@ -29,8 +30,7 @@ function Vendor() {
 
     return (
         <div>
-            <Navy />
-
+            <Navy vendorsdb={Vendorsdb} />
             <h2><a>Register your business</a></h2>
             <input onChange={event => setVendorName(event.target.value)} class="form-control" type="text" placeholder="enter business name" aria-label="Search"></input>
             <h1>{vendorName}</h1>

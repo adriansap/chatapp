@@ -3,9 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import useSocket from 'use-socket.io-client';
 import { useImmer } from 'use-immer';
-
 import './index.css';
 import Navy from './components/Navy'
+import Employees from './Employees.json'
+
+
 
 const Messages = props => props.data.map(m => m[0] !== '' ? (<li><strong>{m[0]}</strong> : <div className="innermsg">{m[1]}</div></li>) : (<li className="update">{m[1]}</li>));
 
@@ -88,7 +90,7 @@ export default () => {
     </section>
   ) : (
       <div>
-        <Navy />
+         <Navy employees={Employees} />
         <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
           <img src={process.env.PUBLIC_URL + '/yellowchat-logo2.PNG'} />
           <h2>chat with a yellowchat representative</h2>

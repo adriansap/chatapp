@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import useSocket from 'use-socket.io-client';
 import { useImmer } from 'use-immer';
 import Navy from './components/Navy'
+import Vendorsdb from './Vendorsdb.json'
 
 import './index.css';
 
@@ -90,8 +91,7 @@ export default () => {
     </section>
   ) : (
       <div>
-        <Navy />
-
+        <Navy vendorsdb={Vendorsdb} />
         <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
 
 

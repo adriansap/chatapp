@@ -1,11 +1,13 @@
 import React from 'react';
 import Navy from './components/Navy'
+import Employees from './Employees.json'
+import Vendorsdb from './Vendorsdb.json'
 
 
 function Userlogin() {
     return (
         <div>
-            <Navy />
+         <Navy vendorsdb={Vendorsdb} />
             <form>
                 <h3>Sign In</h3>
 

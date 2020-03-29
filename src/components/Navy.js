@@ -11,6 +11,11 @@ function Navy(props) {
         color: 'yellow',
 
     };
+
+    let searchDiv = {
+        backgroundColor: 'lightgrey',
+    };
+
     if (queryValue) {
         return (
             <div>
@@ -20,7 +25,6 @@ function Navy(props) {
                         <Nav.Link href="/userlogin">Login</Nav.Link>
                         <Nav.Link href="/userregister">Register</Nav.Link>
                         <Nav.Link href="/vendor">For Vendors</Nav.Link>
-                        <Nav.Link href="#">Contact</Nav.Link>
                         <Nav.Link href="#">Blog</Nav.Link>
 
                     </Nav>
@@ -31,18 +35,18 @@ function Navy(props) {
                     </Form>
                 </Navbar>
 
-                {props.employees.filter(name => name.name.toLowerCase().includes(queryValue)).map(filteredName => (
+                {props.vendorsdb.filter(name => name.name.toLowerCase().includes(queryValue)).map(filteredName => (
 
+                    <div style={searchDiv}>
+                        <tr>
+                            <th scope="row"></th>
+                            <td><img src={filteredName.image} alt="profilepic"></img></td>
+                            <td>{filteredName.name}</td>
+                            {/* <td>{filteredName.phone},</td> */}
+                            <a href={filteredName.yellowchatlink}><td>@yellowchat</td></a>
 
-                    <tr>
-                        <th scope="row"></th>
-                        <td><img src={filteredName.image} alt="profilepic"></img></td>
-                        <td>{filteredName.name}</td>
-                        {/* <td>{filteredName.phone},</td> */}
-                        <a href={filteredName.yellowchatlink}><td>@yellowchat</td></a>
-
-                    </tr>
-
+                        </tr>
+                    </div>
 
 
                 ))}
