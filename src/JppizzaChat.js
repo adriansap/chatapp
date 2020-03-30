@@ -74,7 +74,9 @@ export default () => {
     if (input !== '') {
       socket.emit('chat message', input, room);
       setInput('');
+      e.target.value = '';
     }
+   
   }
 
   return id ? (

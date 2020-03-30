@@ -1,40 +1,39 @@
 import React, { useState } from 'react';
 import Navy from './components/Navy'
 import Vendorsdb from './Vendorsdb.json'
-var fs = require('fs');
+// var fs = require('fs');
 
 
 function Vendor() {
     const [vendorName, setVendorName] = useState('')
 
-    function writeFileVendor() {
+    function handleSubmit(event) {
+        alert('A form was submitted: ' + vendorName);
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const url = "https://localhost:8080/api/newuser"; // site that doesn’t send Access-Control-*
 
-        fs.writeFile(`${vendorName}.html`, `
-        <div>name of vendor is ${vendorName}</div>
-        ` , function (err) {
-            if (err) {
-                return console.log(err);
-            }
-            // console.log("The file was saved!");
+        fetch(url, {
+            method: 'POST',
+            // We convert the React state to JSON and send it as the POST body
+            body: JSON.stringify(vendorName)
+        }).then(function (response) {
+            console.log(response)
+            return response.json();
+            
         });
 
-
-        // fs.mkdir('/home', function() {
-        //     fs.writeFile('/home/hello-world.txt', 'Hello world sc!\n', function() {
-        //         fs.readFile('/home/hello-world.txt', 'utf-8', function(err, data) {
-        //             console.log(data);
-        //         });
-        //     });
-        // });
+        event.preventDefault();
     }
 
     return (
         <div>
             <Navy vendorsdb={Vendorsdb} />
-            <h2><a>Register your business</a></h2>
-            <input onChange={event => setVendorName(event.target.value)} class="form-control" type="text" placeholder="enter business name" aria-label="Search"></input>
-            <h1>{vendorName}</h1>
-            <button onClick={writeFileVendor}>Submit</button>
+            <form onSubmit={handleSubmit}>
+                <h2><a>Register your business</a></h2>
+                <input onChange={event => setVendorName(event.target.value)} class="form-control" type="text" placeholder="enter business name" aria-label="Search"></input>
+                <h1>{vendorName}</h1>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     )
 }
