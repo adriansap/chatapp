@@ -74,9 +74,8 @@ export default () => {
     if (input !== '') {
       socket.emit('chat message', input, room);
       setInput('');
-      e.target.value = '';
     }
-   
+
   }
 
   return id ? (
@@ -108,7 +107,7 @@ export default () => {
           <br></br>
           <center><div>JP Pizza Blog - Specials This Week!</div></center>
         </div>
-        
+
       </div>
     );
 };
