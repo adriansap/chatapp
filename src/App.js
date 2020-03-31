@@ -6,6 +6,7 @@ import JppizzaChat from './JppizzaChat';
 import Userregister from './Userregister';
 import Userlogin from './Userlogin';
 import Vendor from './Vendor';
+import Userdashboard from './Userdashboard'
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/userregister" render={() => <Userregister />} />
         <Route exact path="/userlogin" render={() => <Userlogin />} />
         <Route exact path="/vendor" render={() => <Vendor />} />
+        <Route exact path="/sampleuser" render={() => <Userdashboard />} />
 
 
         {/* </Wrapper> */}

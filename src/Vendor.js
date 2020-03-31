@@ -14,45 +14,44 @@ function Vendor() {
         console.log('lets roll')
 
 
-            (async () => {
-                const rawResponse = await fetch(proxyurl + 'http://localhost:8080/api/newuser', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({  newVendor: vendorName })
-                });
-                const content = await rawResponse.json();
+            // (async () => {
+            //     const rawResponse = await fetch(proxyurl + 'http://localhost:8080/api/newuser', {
+            //         method: 'POST',
+            //         headers: {
+            //             'Accept': 'application/json',
+            //             'Content-Type': 'application/json'
+            //         },
+            //         body: JSON.stringify({  newVendor: vendorName })
+            //     });
+            //     const content = await rawResponse.json();
 
-                console.log(content);
-            })();
+            //     console.log(content);
+            // })();
 
         // var data = new FormData();
-        // const payload = {
-        //     vendorName: vendorName,
-        // };
+        var payload = {
+            vendorName: vendorName,
+        };
         // console.log("payload is", payload)
         // data.append("myjsonkey", JSON.stringify(payload));
         // console.log("data is", data)
-        // fetch('https://localhost:8080/api/newuser', {
-        //     method: 'POST',
-        //     body: JSON.stringify(payload),
-        //     headers: { 'Content-Type': 'application/json' }
+        fetch(proxyurl + url, {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
 
-        // })
-        //     // .then(res => res.json())
-        //     .then(function (response) {
-        //         console.log('im not crazy')
-        //         console.log(response)
-        //         return response.json();
+        })
+            // .then(res => res.json())
+            .then(function (response) {
+                console.log('im not crazy')
+                console.log(response)
+                return response.json();
 
-        //     }).catch((err) => {
-        //         console.log('im crazy')
-        //         console.log(err)
-        //     })
+            }).catch((err) => {
+                console.log(err)
+            })
 
-        // event.preventDefault();
+        event.preventDefault();
     }
 
 
