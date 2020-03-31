@@ -11,19 +11,33 @@ function Vendor() {
         alert('A form was submitted: ' + vendorName);
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "https://localhost:8080/api/newuser"; // site that doesn’t send Access-Control-*
+        console.log('lets roll')
 
         fetch(url, {
             method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
             // We convert the React state to JSON and send it as the POST body
-            body: JSON.stringify(vendorName)
-        }).then(function (response) {
+            body: JSON.stringify({
+               firstParam: vendorName
+            })
+        })
+        // .then(res => res.json())
+        .then(function (response) {
+            console.log('im not crazy')
             console.log(response)
             return response.json();
             
-        });
+        }).catch((err) => {
+            console.log('im crazy')
+            console.log(err)
+        })
 
         event.preventDefault();
     }
+  
 
     return (
         <div>

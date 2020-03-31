@@ -1,7 +1,6 @@
 var path = require("path");
-
 const fs = require("fs")
-const newVendorReceived = require('./newuser.json');
+let newVendorReceived = require('./newuser.json');
 
 module.exports = function (app) {
     app.post("/api/newuser", function (req, res) {
@@ -25,13 +24,13 @@ module.exports = function (app) {
 
     });
 
-    app.get("/api/notes", function (req, res) {
+    app.get("/api/newuser", function (req, res) {
         // var parsedData = Object.create(null)
 
 
         // res.json(JSON.parse(data))
         console.log("yep can get");
-
+        res.json(true)
     });
 
 }
