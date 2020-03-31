@@ -1,19 +1,4 @@
-var path = require("path");
-const fs = require("fs")
-let newVendorReceived = require('./newuser.json');
 
-module.exports = function (app) {
-    app.post("/api/newuser", function (req, res) {
-        console.log("yes can post") //didn't log
-        newVendorReceived = JSON.stringify(req.body.newVendor); //get new note into newNoteReceived
-        console.log("req.body is :" + JSON.stringify(req.body)); //logs!
-        // res.send("received, thanks")
-        // notedatabase.push(req.body);
-        // console.log(notedatabase)
-        res.json(true)
-        // notedatabaseString = JSON.stringify(notedatabase)
-        var filename = req.body.newVendor + ".js"; //name of file based on newVendor name.
-        fs.writeFile(filename, `
         
         // App.js
 
@@ -113,7 +98,7 @@ export default () => {
         <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
 
 
-          <h1>${newVendorReceived}'s</h1>
+          <h1>"bones"'s</h1>
           <h2> yellowchat room</h2>
           <form onSubmit={event => handleSubmit(event)}>
 
@@ -122,32 +107,10 @@ export default () => {
             <button type="submit">Submit</button>
           </form>
           <br></br>
-          <center><div>${newVendorReceived} Blog</div></center>
+          <center><div>"bones" Blog</div></center>
         </div>
 
       </div>
     );
 };        
-        `
-            , function (err) {
-                if (err) {
-                    return console.log(err);
-                }
-                console.log("Success!");
-
-            });
-
-
-
-    });
-
-    app.get("/api/newuser", function (req, res) {
-        // var parsedData = Object.create(null)
-
-
-        // res.json(JSON.parse(data))
-        console.log("yep can get");
-        res.json(true)
-    });
-
-}
+        
