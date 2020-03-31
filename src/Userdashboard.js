@@ -12,11 +12,15 @@ function Userdashboard() {
         fontSize: '20px',
     }
 
+    let containerstyles = {
+        backgroundColor: 'lightyellow'
+    }
+
     return (
         <div>
 
             <Navy />
-            <div class="container">
+            <div class="container" style={containerstyles} >
                 <div class="row">
                     <div class="col-md-12">
                         <center><div style={headerstyles}>@sampleuser's Dashboard</div></center>

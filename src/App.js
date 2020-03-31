@@ -7,7 +7,9 @@ import Userregister from './Userregister';
 import Userlogin from './Userlogin';
 import Vendor from './Vendor';
 import Userdashboard from './Userdashboard'
-
+import Marker from './Marker'
+import Importmarker from './Importmarker'
+/*<Importmarker />*/
 
 
 function App() {
@@ -16,7 +18,7 @@ function App() {
 
     <Router>
       <div>
-        {/* <Wrapper> */}
+
         <Route exact path="/" render={() => <Main />} />
         <Route exact path="/chat" render={() => <Chat />} />
         <Route exact path="/jppizza" render={() => <JppizzaChat />} />
@@ -24,9 +26,9 @@ function App() {
         <Route exact path="/userlogin" render={() => <Userlogin />} />
         <Route exact path="/vendor" render={() => <Vendor />} />
         <Route exact path="/sampleuser" render={() => <Userdashboard />} />
+        <Marker />
 
 
-        {/* </Wrapper> */}
       </div>
     </Router>
 

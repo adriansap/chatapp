@@ -1,16 +1,4 @@
-var path = require("path");
-const fs = require("fs")
-let newVendorReceived = require('./newuser.json');
 
-module.exports = function (app) {
-  app.post("/api/newuser", function (req, res) {
-    console.log("yes can post") //didn't log
-    newVendorReceived = JSON.stringify(req.body.newVendor); //get new note into newNoteReceived
-    console.log("req.body is :" + JSON.stringify(req.body)); //logs!
-    // res.send("received, thanks")
-    res.json(true)
-    var filename = req.body.newVendor + "chat.js"; //name of file based on newVendor name.
-    fs.writeFile(filename, `
         
         // App.js
 
@@ -110,7 +98,7 @@ export default () => {
         <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
 
 
-          <h1>${newVendorReceived}'s</h1>
+          <h1>"cookiedough"'s</h1>
           <h2> yellowchat room</h2>
           <form onSubmit={event => handleSubmit(event)}>
 
@@ -119,92 +107,10 @@ export default () => {
             <button type="submit">Submit</button>
           </form>
           <br></br>
-          <center><div>${newVendorReceived} Blog</div></center>
+          <center><div>"cookiedough" Blog</div></center>
         </div>
 
       </div>
     );
 };        
-        `
-      , function (err) {
-        if (err) {
-          return console.log(err);
-        }
-        console.log("Success!");
-
-        //add new route for new vendor in App.js
-
-
-        console.log("not crazy")
-        var jsFile;
-        fs.readFile('./src/App.js', "utf8", function (err, data) {
-          if (err) throw err;
-          jsFile = data;
-
-          var appArray = jsFile.split(" ");
-
-          for (i = 0; i < appArray.length; i++) {
-
-            // if (appArray[i] === "/*<Importmarker />*/") {
-            //   console.log("found importmarker!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! marker is ", appArray[i])
-            //   appArray.splice(i, 0, `import "/${newVendorReceived}" from './${newVendorReceived}'
-            //   /*<Importmarker />*/ `);
-            //   newJsFileData = appArray.join(" ");
-            //   stringyVersion = JSON.stringify(newJsFileData)
-            //   console.log("appArray after join is ", newJsFileData)
-            //   fs.writeFile('App-test1.js', stringyVersion, function (err) {
-
-            //     if (err) {
-            //       return console.log(err);
-            //     }
-
-            //     console.log("Success!");
-
-            //   });
-            // }
-            if (appArray[i] === "<Marker") {
-              console.log("found marker!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! marker is ", appArray[i])
-              appArray.splice(i, 0, `<Route exact path="/${newVendorReceived}" render={() => <${newVendorReceived} />} /> `);
-              newJsFileData = appArray.join(" ");
-              stringyVersion = JSON.stringify(newJsFileData)
-
-              console.log("appArray after join is ", newJsFileData)
-              fs.writeFile('App-test1.js', stringyVersion, function (err) {
-
-                if (err) {
-                  return console.log(err);
-                }
-
-                console.log("Success!");
-
-              });
-              break;
-            }
-
-          }
-        });
-
-      });
-
-
-
-
-
-
-
-
-  });
-
-
-
-
-  app.get("/api/newuser", function (req, res) {
-    // var parsedData = Object.create(null)
-
-
-    // res.json(JSON.parse(data))
-    console.log("yep can get");
-    res.json(true)
-  });
-
-}
+        
