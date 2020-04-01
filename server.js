@@ -10,7 +10,7 @@ app.use(express.static("public")) //added
 
 app.use(express.json());
 // require("./routes/htmlRoutes.js")(app)
-require("./src/routes/apiRoutes.js")(app)
+require("./client/src/routes/apiRoutes.js.js")(app)
 
 app.listen(PORT, function () {
     console.log("app listening on port: " + PORT)

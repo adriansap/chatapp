@@ -1,3 +1,4 @@
+/*!*/
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Chat from './Chat';
@@ -6,10 +7,8 @@ import JppizzaChat from './JppizzaChat';
 import Userregister from './Userregister';
 import Userlogin from './Userlogin';
 import Vendor from './Vendor';
-import Userdashboard from './Userdashboard'
-import Marker from './Marker'
-import Importmarker from './Importmarker'
-/*<Importmarker />*/
+import Userdashboard from './Userdashboard';
+import Marker from './Marker';
 
 
 function App() {
@@ -26,7 +25,12 @@ function App() {
         <Route exact path="/userlogin" render={() => <Userlogin />} />
         <Route exact path="/vendor" render={() => <Vendor />} />
         <Route exact path="/sampleuser" render={() => <Userdashboard />} />
-        <Marker />
+        <Route exact path="/vendor/:vendorName" render={() => <Chat />} />
+        {/* <Route exact path="/Wings" render={() => <Chat />} />
+ <Route exact path="/Wendys" render={() => <Chat />} />
+ <Route exact path="/Arbys"  render={() => <Chat />} />
+ <Route exact path="/Arbys" props="Arbys" render={() => <Chat />} /> */}
+ <Marker />
 
 
       </div>

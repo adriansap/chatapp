@@ -3,10 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import useSocket from 'use-socket.io-client';
 import { useImmer } from 'use-immer';
-import Navy from './components/Navy'
-import Vendorsdb from './Vendorsdb.json'
-
 import './index.css';
+import Navy from './components/Navy'
+import Employees from './Employees.json'
+
+
 
 const Messages = props => props.data.map(m => m[0] !== '' ? (<li><strong>{m[0]}</strong> : <div className="innermsg">{m[1]}</div></li>) : (<li className="update">{m[1]}</li>));
 
@@ -75,13 +76,10 @@ export default () => {
       socket.emit('chat message', input, room);
       setInput('');
     }
-
   }
 
   return id ? (
     <section style={{ display: 'flex', flexDirection: 'row' }} >
-
-
       <ul id="messages"><Messages data={messages} /></ul>
       <ul id="online"> 🌐 : <Online data={online} /> </ul>
       <div id="sendform">
@@ -92,22 +90,19 @@ export default () => {
     </section>
   ) : (
       <div>
-        <Navy vendorsdb={Vendorsdb} />
+         <Navy employees={Employees} />
         <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
+          <img src={process.env.PUBLIC_URL + '/yellowchat-logo2.PNG'} />
+          <h2>Chat with your favorite shop</h2> 
+          {/* //how to use the props? */}
 
-
-          <img src={process.env.PUBLIC_URL + '/jppizza.PNG'} />
-          <h2> yellowchat room</h2>
           <form onSubmit={event => handleSubmit(event)}>
 
             <input id="name" onChange={e => setNameInput(e.target.value.trim())} required placeholder="What is your name .." /><br />
             <input id="room" onChange={e => setRoom(e.target.value.trim())} placeholder="What is your room .." /><br />
             <button type="submit">Submit</button>
           </form>
-          <br></br>
-          <center><div>JP Pizza Blog - Specials This Week!</div></center>
         </div>
-
       </div>
     );
 };

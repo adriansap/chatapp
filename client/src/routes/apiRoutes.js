@@ -1,6 +1,19 @@
+var path = require("path");
+const fs = require("fs")
+let newVendorReceived = require('./newuser.json');
 
+module.exports = function (app) {
+  app.post("/api/newuser", function (req, res) {
+    console.log("yes can post") //didn't log
+    newVendorReceived = (req.body.newVendor);
+    // console.log(req.body.newVendor, newVendorReceived, "@@@@@@@@@") //get new note into newNoteReceived
+    console.log("req.body is :" + JSON.stringify(req.body)); //logs!
+    // res.send("received, thanks")
+    res.json(true)
+    var filename = req.body.newVendor + ".js"; //name of file based on newVendor name.
+    fs.writeFileSync(filename, `
         
-        // App.js
+        // chat app
 
 import React, { useState, useEffect } from 'react';
 import useSocket from 'use-socket.io-client';
@@ -98,7 +111,7 @@ export default () => {
         <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
 
 
-          <h1>"cash"'s</h1>
+          <h1>${newVendorReceived}'s</h1>
           <h2> yellowchat room</h2>
           <form onSubmit={event => handleSubmit(event)}>
 
@@ -107,10 +120,100 @@ export default () => {
             <button type="submit">Submit</button>
           </form>
           <br></br>
-          <center><div>"cash" Blog</div></center>
+          <center><div>${newVendorReceived} Blog</div></center>
         </div>
 
       </div>
     );
 };        
-        
+        `
+      , function (err) {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("Success!");
+      });
+
+
+
+
+    //add new route for new vendor in App.js
+
+
+    console.log("not crazy")
+    var jsFile;
+    fs.readFile('./src/App.js', "utf8", function (err, data) {
+      if (err) throw err;
+      jsFile = data;
+      console.log(jsFile)
+      var appArray = jsFile.split(" ");
+      console.log("appArray ", appArray.length)
+
+      
+      //find marker and insert new route statement
+      for (i = 0; i < appArray.length; i++) {
+        if (appArray[i] === "<Marker") {
+          // console.log("found marker!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! marker is ", appArray[i])
+          appArray.splice(i, 1, `<Route exact path="/${newVendorReceived}" props="${newVendorReceived}" render={() => <Chat />} />\n <Marker`);
+          newJsFileData = appArray.join(" ");
+          stringyVersion = JSON.stringify(newJsFileData)
+
+          console.log("appArray after join is ", newJsFileData)
+          fs.writeFileSync('./src/App.js', newJsFileData, function (err) {
+
+            if (err) {
+              return console.log(err);
+            }
+
+            console.log("Success!");
+
+          });
+          break;
+        }
+
+      }
+      //find marker and insert new import statement
+      for (let i = 0; i < 2; i++) {
+        // console.log("sc")
+        // console.log(appArray[i])
+        // console.log("count ", i);
+        if (appArray[i] === "/*!*/") {
+          // console.log("##############")
+
+          // console.log("found importmarker!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! marker is ", appArray[i])
+          appArray.splice(i, 1, `import ${newVendorReceived} from './${newVendorReceived}'; /*!*/`);
+          var newJsFileData = appArray.join(" ");
+          var stringyVersion = JSON.stringify(newJsFileData)
+          console.log("appArray after join is ", newJsFileData)
+          
+          fs.writeFileSync('./src/App.js', newJsFileData, function (err) {
+
+            if (err) {
+              return console.log(err);
+            }
+
+            console.log("Success!");
+
+          });
+
+        }
+      
+      }
+
+    });
+
+  });
+
+
+
+
+  app.get("/api/newuser", function (req, res) {
+    // var parsedData = Object.create(null)
+
+
+    // res.json(JSON.parse(data))
+    console.log("yep can get");
+    res.json(true)
+  });
+
+}

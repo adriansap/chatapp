@@ -1,6 +1,6 @@
 
         
-        // App.js
+        // chat app
 
 import React, { useState, useEffect } from 'react';
 import useSocket from 'use-socket.io-client';
@@ -98,7 +98,7 @@ export default () => {
         <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
 
 
-          <h1>"subway"'s</h1>
+          <h1>Arbys's</h1>
           <h2> yellowchat room</h2>
           <form onSubmit={event => handleSubmit(event)}>
 
@@ -107,7 +107,7 @@ export default () => {
             <button type="submit">Submit</button>
           </form>
           <br></br>
-          <center><div>"subway" Blog</div></center>
+          <center><div>Arbys Blog</div></center>
         </div>
 
       </div>
