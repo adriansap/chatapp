@@ -25,7 +25,7 @@ function App() {
         <Route exact path="/userlogin" render={() => <Userlogin />} />
         <Route exact path="/vendor" render={() => <Vendor />} />
         <Route exact path="/sampleuser" render={() => <Userdashboard />} />
-        <Route exact path="/vendor/:vendorName" render={() => <Chat />} />
+        <Route exact path="/vendor/:vendorName" exact component={Chat} render={() => <Chat />} />
         {/* <Route exact path="/Wings" render={() => <Chat />} />
  <Route exact path="/Wendys" render={() => <Chat />} />
  <Route exact path="/Arbys"  render={() => <Chat />} />

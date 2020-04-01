@@ -6,14 +6,20 @@ import { useImmer } from 'use-immer';
 import './index.css';
 import Navy from './components/Navy'
 import Employees from './Employees.json'
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
 
 
 const Messages = props => props.data.map(m => m[0] !== '' ? (<li><strong>{m[0]}</strong> : <div className="innermsg">{m[1]}</div></li>) : (<li className="update">{m[1]}</li>));
 
 const Online = props => props.data.map(m => <li id={m[0]}>{m[1]}</li>)
 
-export default () => {
+export default function Chat(props) {
   const [id, setId] = useState('');
   const [nameInput, setNameInput] = useState('');
   const [room, setRoom] = useState('');
@@ -25,6 +31,14 @@ export default () => {
   const [messages, setMessages] = useImmer([]);
 
   const [online, setOnline] = useImmer([]);
+
+  //set room name based on props.match.params
+  const { vendorName } = useParams();
+  console.log(vendorName);
+
+  useEffect(() => {
+    setRoom(vendorName);
+  }, [])
 
   useEffect(() => {
     socket.on('message que', (nick, message) => {
@@ -90,16 +104,16 @@ export default () => {
     </section>
   ) : (
       <div>
-         <Navy employees={Employees} />
+        <Navy employees={Employees} />
         <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
-          <img src={process.env.PUBLIC_URL + '/yellowchat-logo2.PNG'} />
-          <h2>Chat with your favorite shop</h2> 
+          {/* <img src={process.env.PUBLIC_URL + '/yellowchat-logo2.PNG'} /> */}
+          <h2>Chat with your favorite shop</h2>
           {/* //how to use the props? */}
 
           <form onSubmit={event => handleSubmit(event)}>
 
             <input id="name" onChange={e => setNameInput(e.target.value.trim())} required placeholder="What is your name .." /><br />
-            <input id="room" onChange={e => setRoom(e.target.value.trim())} placeholder="What is your room .." /><br />
+            {/* <input id="room" onChange={e => setRoom(roomName)} placeholder="What is your room .." /><br /> */}
             <button type="submit">Submit</button>
           </form>
         </div>
